@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNCF Sandwich – CSS-only Dropdown</title>
+    <link rel="stylesheet" href="menu.css">
+    </head>
+    <body>
+
+    <header class="hero">
+        <h1 class="hero__title">SNCF Sandwich</h1>
+    </header>
+
+    <nav class="menu" aria-label="SNCF Sandwich - Drop-down menu">
+        <ul class="menu__top">
+        <li class="menu__brand">
+            <a href="#" class="menu__link menu__link--brand">SNCF&nbsp;Sandwich</a>
+        </li>
+
+        <li class="menu__item menu__item--dropdown">
+            <a href="#" class="menu__link menu__trigger" aria-haspopup="true" aria-expanded="false">Order</a>
+            <ul class="menu__sub">
+            <li class="menu__item menu__item--dropdown">
+                <a href="#" class="menu__link menu__trigger" aria-haspopup="true" aria-expanded="false">Bread</a>
+                <ul class="menu__sub">
+                <li class="menu__item"><a href="#" class="menu__link">Baguette</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Whole&nbsp;Wheat</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Sourdough</a></li>
+                </ul>
+            </li>
+
+            <li class="menu__item menu__item--dropdown">
+                <a href="#" class="menu__link menu__trigger" aria-haspopup="true" aria-expanded="false">Filling</a>
+                <ul class="menu__sub">
+                <li class="menu__item"><a href="#" class="menu__link">Ham</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Cheese</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Ham&nbsp;&amp;&nbsp;Cheese</a></li>
+                </ul>
+            </li>
+
+            <li class="menu__item menu__item--dropdown">
+                <a href="#" class="menu__link menu__trigger" aria-haspopup="true" aria-expanded="false">Extras</a>
+                <ul class="menu__sub">
+                <li class="menu__item"><a href="#" class="menu__link">Butter</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Pickles</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Mustard</a></li>
+                </ul>
+            </li>
+
+            <li class="menu__divider" role="separator"></li>
+            <li class="menu__item"><a href="#" class="menu__link">Checkout</a></li>
+            </ul>
+        </li>
+
+        <li class="menu__item"><a href="#" class="menu__link">Timetables</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Stations</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Support</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <p>yay!</p>
+    </main>
+
+</body>
+</html>

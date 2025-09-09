@@ -1,0 +1,160 @@
+:root {
+  --ink: #1f2937;
+  --bg: #fffdf9;
+  --accent: #8b5cf6;
+  --accent-2: #f59e0b;
+  --bread-top: #f6e0b5;
+  --ham: #f5a3b3;
+  --cheese: #ffe082;
+  --shadow: rgba(31,41,55,.15);
+  --radius: 14px;
+  --gap: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);                 
+  background: var(--bg);            
+  line-height: 1.5;
+}
+
+
+.hero {
+  background-image:
+    linear-gradient(var(--bread-top), var(--bread-top)),
+    linear-gradient(var(--ham), var(--ham)),            
+    linear-gradient(var(--cheese), var(--cheese));
+  background-size: 100% 18px, 100% 10px, 100% 10px;
+  background-position: 0 0, 0 18px, 0 28px;
+  background-repeat: no-repeat;
+  padding: 56px 24px 24px;
+  text-align: center;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+.hero__title { font-size: 32px; font-weight: 800; }
+.hero__tagline { font-size: 14px; opacity: .75; }
+
+
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px var(--shadow);
+}
+.menu__top {
+  list-style: none;                      
+  display: flex;                         
+  align-items: center;                   
+  gap: var(--gap);                       
+  padding: 12px 20px;                    
+  max-width: 1100px;                     
+  margin: 0 auto;                        
+}
+.menu__brand { margin-right: auto; }     
+
+.menu__link {
+  text-decoration: none;               
+  color: var(--ink);              
+  font-weight: 600;                      
+  padding: 10px 14px;                 
+  border-radius: var(--radius);      
+  display: inline-block;                
+  transition: transform .15s ease, background-color .15s ease;
+}
+.menu__link:hover,
+.menu__link:focus {                      
+  background: #f3f4f6;                 
+  outline: none;                        
+  transform: translateY(-1px);           
+}
+
+.menu__link--brand {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;                         
+  box-shadow: 0 4px 10px var(--shadow);
+}
+.menu__link--brand:hover,
+.menu__link--brand:focus { transform: translateY(-2px); }
+
+
+.menu__item { position: relative; }
+
+.menu__trigger::after { 
+  content: "▾";           
+  margin-left: 6px;
+  font-size: .9em;               
+}
+
+.menu__sub {
+  list-style: none;              
+  position: absolute;          
+  top: calc(100% + 8px);         
+  left: 0;                      
+  min-width: 220px;              
+  background: #fff;               
+  border-radius: var(--radius);  
+  box-shadow: 0 10px 25px var(--shadow); 
+  padding: 8px;
+  opacity: 0;                    
+  visibility: hidden;             
+  transform: translateY(-6px);   
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  pointer-events: none;        
+  z-index: 20;                   
+}
+
+
+.menu__item--dropdown:hover > .menu__sub,
+.menu__item--dropdown:focus-within > .menu__sub {
+  opacity: 1;                    
+  visibility: visible;          
+  transform: translateY(0);     
+  pointer-events: auto;         
+}
+
+.menu__sub .menu__item { margin: 2px 0; }
+
+.menu__sub .menu__link { 
+  display: block;                  
+  padding: 10px 12px;              
+  border-radius: 10px;             
+}
+.menu__sub .menu__link:hover,
+.menu__sub .menu__link:focus {
+  background: #f5f3ff;
+}
+
+
+.menu__divider {
+  height: 1px;                     
+  background: #e5e7eb;       
+  margin: 6px 4px;          
+}
+
+.menu__sub .menu__item--dropdown > .menu__sub {
+  top: 0;                          
+  left: 100%;                      
+  margin-left: 8px;                
+}
+
+
+.content {
+  max-width: 900px;                
+  margin: 40px auto;               
+  padding: 0 20px;                 
+  font-size: 1.05rem;          
+}
+
+@media (max-width: 720px) {        
+  .menu__top {                     
+    flex-wrap: wrap;               
+    gap: 10px;
+  }
+  .menu__brand { width: 100%; }
+  .menu__link--brand { display: inline-block; }
+}
