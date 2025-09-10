@@ -10,7 +10,7 @@ body {
 #balloon {
     width: 200px;
     height: 200px;
-    background-color: red;
+    background-color: #fa95d0ff;
     border-radius: 50%;
     transition: all 0.3s ease;
 }
