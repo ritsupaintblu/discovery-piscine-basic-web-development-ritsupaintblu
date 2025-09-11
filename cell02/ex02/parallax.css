@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 2px 2px 5px black;
+}
+
+.img1 {
+    background-image: url("https://wallpapers.com/images/featured/cat-meme-f9i99husnvjkk492.jpg");
+}
+
+.img2 {
+    background-image: url("https://i.pinimg.com/originals/d7/60/61/d7606104147ce77037c3d86b59f61521.jpg");
+}
+
+.content {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+}
