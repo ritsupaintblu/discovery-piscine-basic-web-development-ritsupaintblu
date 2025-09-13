@@ -4,19 +4,17 @@ let colors = ['#ffd1ec', '#ffbae2ff', '#fa95d0ff'];
 let colorIndex = 0;
 
 balloon.addEventListener('click', () => {
-    size += 10; 
+    size += 10;
     colorIndex = (colorIndex + 1) % colors.length; 
+    if (size > 420) {
+        size = 200;
+        colorIndex = 0
+    }
+ 
     balloon.style.width = `${size}px`;
     balloon.style.height = `${size}px`;
     balloon.style.backgroundColor = colors[colorIndex];
 
-    if (size > 420) {
-        size = 200;
-        colorIndex = 0;
-        balloon.style.width = `${size}px`;
-        balloon.style.height = `${size}px`;
-        balloon.style.backgroundColor = colors[colorIndex];
-    }
 });
 
 balloon.addEventListener('mouseenter', () => {
