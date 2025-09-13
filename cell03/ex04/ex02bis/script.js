@@ -1,11 +1,10 @@
 $(document).ready(function () {
-    // ฟังก์ชันสำหรับการคำนวณ
-    function calculate() {
-        const leftOperand = $('#leftOperand').val(); // รับค่าจาก input ซ้าย
-        const rightOperand = $('#rightOperand').val(); // รับค่าจาก input ขวา
-        const operator = $('#operator').val(); // รับค่าจาก select (operator)
 
-        // ตรวจสอบให้แน่ใจว่าเป็นตัวเลขบวก
+    function calculate() {
+        const leftOperand = $('#leftOperand').val();
+        const rightOperand = $('#rightOperand').val();
+        const operator = $('#operator').val();
+
         if (!isPositiveInteger(leftOperand) || !isPositiveInteger(rightOperand)) {
             alert("Error :(");
             console.error("Error :(");
@@ -17,7 +16,6 @@ $(document).ready(function () {
         let result;
 
         try {
-            // คำนวณตาม operator
             switch (operator) {
                 case '+': result = num1 + num2; break;
                 case '-': result = num1 - num2; break;
