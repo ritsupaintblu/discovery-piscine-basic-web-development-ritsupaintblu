@@ -1,35 +1,55 @@
-$(document).ready(function () {
-    // ฟังก์ชันสำหรับเพิ่มรายการใหม่
-    function addTodo() {
-        // รับข้อความจากผู้ใช้
-        const todoText = prompt("Enter your new to-do:");
+$(document).ready(function() {
+    const list = $("#ft_list");
+    const saved = getCookie("todos");
 
-        // ถ้าผู้ใช้ป้อนข้อความ
-        if (todoText) {
-            // สร้าง div สำหรับรายการใหม่
-            const newTodo = $("<div></div>")
-                .text(todoText)
-                .css({
-                    padding: "10px",
-                    margin: "5px 0",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    backgroundColor: "#f9f9f9",
-                    cursor: "pointer",
-                })
-                .click(function () {
-                    // ลบรายการเมื่อคลิก
-                    if (confirm("Are you sure you want to delete this item?")) {
-                        $(this).remove();
-                    }
-                });
+    if (saved) {
+        const todos = JSON.parse(saved);
+        todos.forEach(task => addTodo(task, false));
+    }
 
-            // เพิ่มรายการใหม่ที่ด้านบนของรายการ
-            $("#ft_list").prepend(newTodo);
+    function addTodo(text, save) {
+        const div = $("<div>").text(text).click(function() {
+            if (confirm("Do you want to remove this TO DO?")) {
+                $(this).remove();
+                saveTodos();
+            }
+        });
+        list.prepend(div);
+        if (save) saveTodos();
+    }
+
+    function newTodo() {
+        const task = prompt("Enter a new TO DO:");
+        if (task && task.trim() !== "") {
+            addTodo(task.trim(), true);
         }
     }
 
-    $("#newBtn").click(function () {
-        addTodo();
-    });
+    $("#newtodo").on("click", newTodo);
+
+    function saveTodos() {
+        const todos = [];
+        list.find("div").each(function() {
+            todos.push($(this).text());
+        });
+        setCookie("todos", JSON.stringify(todos), 7);
+    }
+
+    function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days*24*60*60*1000));
+        const expires = "expires="+ d.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    function getCookie(name) {
+        const cname = name + "=";
+        const decoded = decodeURIComponent(document.cookie);
+        const ca = decoded.split(';');
+        for(let c of ca) {
+            c = c.trim();
+            if (c.indexOf(cname) === 0) return c.substring(cname.length);
+        }
+        return "";
+    }
 });

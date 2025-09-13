@@ -1,6 +1,6 @@
 const balloon = document.getElementById('balloon');
 let size = 200; 
-let colors = ['#ffd1ec', '#ffbae2ff', '#fa95d0ff']; 
+let colors = ['red', 'green', 'blue']; 
 let colorIndex = 0;
 
 balloon.addEventListener('click', () => {

@@ -1,6 +1,6 @@
 $(document).ready(function() {
   let size = 200; 
-  let colors = ['#ffd1ec', '#ffbae2ff', '#fa95d0ff']; 
+  let colors = ['red', 'green', 'blue']; 
   let colorIndex = 0;
 
   const $balloon = $("#balloon");

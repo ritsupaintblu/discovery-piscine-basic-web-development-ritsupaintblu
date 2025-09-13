@@ -40,17 +40,14 @@ $(document).ready(function () {
         }
     }
 
-    // ตรวจสอบว่าค่าที่ใส่มาเป็นเลขจำนวนเต็มบวก
     function isPositiveInteger(value) {
         return /^\d+$/.test(value);
     }
 
-    // ผูก event handler ให้กับปุ่มกด
     $('#calculateButton').click(function () {
         calculate();
     });
 
-    // แจ้งเตือนทุก 30 วินาที
     setInterval(() => {
         alert("Please, use me...");
     }, 30000);
